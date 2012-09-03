@@ -32,28 +32,8 @@
   </head>
 
   <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Punk Pastries</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Come In</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#contact">Flavours</a></li>
-              <li><a href="#contact">Cake Gallery</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+  
+  <?php include 'navbar.php' ?>
 
     <div class="container">
 
@@ -62,11 +42,10 @@
 		<div id="cake-photos-carousel" class="carousel slide">
 		  <!-- Carousel items -->
 		  <div class="carousel-inner">
-		    <div class="active item" id="carousel-loading-item">loading...</div>
+		    <div class="active item">slide 1</div>
+		    <div class="item">slide 2</div>
+		    <div class="item">slide 3</div>
 		  </div>
-		  <!-- Carousel nav -->
-		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-		  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 		</div>
       </div>
 
@@ -106,54 +85,11 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"></script>
     
     <script type="text/javascript">
-    jQuery(function($){
-
-		//load photos into the carusel
-		var cakeOrdersAlbumUrl = "https://graph.facebook.com/217634341594056/photos";
-
-		var maxSize = {
-			height: 330,
-			width: 650,
-		};
-
-		$.getJSON(cakeOrdersAlbumUrl, function(photos){	
-			var displayImage;
-					
-			for( var i = 0; i < photos.data.length; i++ ){
-				displayImage = {
-					source: photos.data[i].source,
-					height: photos.data[i].height,
-					width: photos.data[i].width,
-				};
-
-				var imagesIndex = 0;
-
-				while( 
-					( imagesIndex < photos.data[i].images.count ) && 
-					( displayImage.height > maxSize.height || displayImage.width > maxSize.width ) 
-				){
-					displayImage = {
-						source: photos.data[i].images[i].source,
-						height: photos.data[i].images[i].height,
-						width: photos.data[i].images[i].width,
-					};
-					imagesIndex++;
-				}
-				
-				$('#cake-photos-carousel .carousel-inner').append('<div class="item"><img src="' + displayImage.source + '" alt=""/></div>');
-			}
-
-			$('#cake-photos-carousel .carousel-inner').height(maxSize.height + 10);
-					
-	        
-	    	$('#cake-photos-carousel').carousel({
+    	jQuery(function($){
+    		$('#cake-photos-carousel').carousel({
 	    		interval: 5000
 	    	});
-
-	    	$('#cake-photos-carousel').carousel('next');
-
-			$('#carousel-loading-item').remove();
-		});
-    });
+        });
     </script>
+    
 </body></html>
