@@ -47,3 +47,13 @@
       </div>
       
       <img src="img/logo-transparent.png"/>
+      
+      <script type="text/javascript">
+    	jQuery(function($){
+    		$('#cake-photos-carousel').carousel({
+	    		interval: 5000
+	    	});
+        });
+    </script>
+      
+      

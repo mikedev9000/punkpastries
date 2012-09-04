@@ -15,17 +15,23 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <?php echo $this->html->style(array(
+    	'bootstrap',
+        'bootstrap-responsive',
+        'lightbox',
+        //'screen',
+    ));?>
+    <?php echo '';//$this->html->style(array('debug', 'lithium')); ?>
     
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <?php echo $this->scripts();?>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"></script>
+    <?php echo $this->html->script(array(
+        '/js/jquery-1.7.1.min.js',
+        '/js/bootstrap.js',
+        '/js/lightbox.js',
+    ));?>
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
 
   </head>
