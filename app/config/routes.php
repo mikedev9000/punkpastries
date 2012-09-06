@@ -29,6 +29,18 @@ use lithium\core\Environment;
  */
 Router::connect('/', 'Pages::view');
 
+$menu = array(
+    'home',
+    'come-in',
+    'about-us',
+    'flavours',
+    'cake-gallery',
+    'contact-us',
+);
+
+foreach( $menu as $page )
+    Router::connect( "/{$page}", array( 'Pages::view', 'args' => (array)$page ) );
+
 /**
  * Connect the rest of `PagesController`'s URLs. This will route URLs like `/pages/about` to
  * `PagesController`, rendering `/views/pages/about.html.php` as a static page.

@@ -48,11 +48,21 @@
           <a class="brand" href="/">Punk Pastries</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Come In</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#contact">Flavours</a></li>
-              <li><a href="cake-gallery.php">Cake Gallery</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+            <?php 
+                $menu = array(
+                    //'home',
+                    'come-in' => 'Come In',
+                    'about-us' => 'About Us',
+                    'flavours' => 'Flavours',
+                    'cake-gallery' => 'Cake Gallery',
+                    'contact-us' => 'Contact Us',
+                );
+            ?>
+            <?php foreach( $menu as $slug => $title ): ?>
+            	<li class="<?=( $this->_request->url == $slug ) ? 'active' : '';?>">
+            		<a href="/<?=$slug;?>"><?=$title;?></a>
+            	</li>
+            <?php endforeach;?>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
