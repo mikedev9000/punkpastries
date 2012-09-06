@@ -69,7 +69,7 @@
       </div>
     </div><!-- .navbar -->
   
-	<div id="content" class="container">
+	<div id="content" class="container" style="margin-top:60px; padding-top:20px;">
 	
       <?php echo $this->content(); ?>
 
